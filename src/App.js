@@ -14,10 +14,12 @@ export default function App(){
   //const [test, handleName] = useState({name : "Abdou"}); 
 
   function handlePrevious(){
-    if(step > 1) stepState(step - 1);
+    if(step > 1) stepState((currentStep) => currentStep - 1);
   }
   function handleNext(){
-    if(step < 3) stepState(step + 1);
+    if(step < 3){
+      stepState((currentStep) => currentStep + 1);      
+    } 
 
     //BAD PRACTICE
     //test.name = "testname";
@@ -27,7 +29,7 @@ export default function App(){
 
   return (
     <div> 
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button className="close" onClick={() => setIsOpen(is => !is)}>
           &times;
       </button>
 
